@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+     <title>SILICON VALLEY HOT DOG PREDICTION</title>
+     <style>
+        * {
+            font-size: 20px;
+       }
+
+     </style>
+
+</head>
+  <body>
+
+    <input id="image-selector" type="file">
+    <button id = "predict-button" > Predict </button>
+    <p style= "font-weight : bold" > Predictions</p>
+    <p>hot_dog: <span id="hot-dog-prediction"></span></p>
+    <p>not_hot_dog: <span id="not-hot-dog-prediction"></span></p>
+    <img id="selected-image" src=""/>
+
+
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script>
+      let base64Image;
+      $("#image-selector").change(function() {
+      let reader = new FileReader();
+      reader.onload = function(e) {
+      let dataURL = reader.result;
+      $("#selected-image").attr("src", dataURL);
+      base64Image = dataURL.replace("data:image/jpeg;base64,","");
+      console.log(base64Image) ;
+      }
+         reader.readAsDataURL($("#image-selector")[0].files[0]);
+         $("#hot-dog-prediction").text("");
+         $("#not-hot-dog-prediction").text("");
+      });
+
+
+      $("#predict-button").click(function(event){
+        let message = {
+               image: base64Image
+            }
+        console.log(message);
+        //$.post("http://10.0.0.4:5000/predict", JSON.stringify(message), function(response){
+        $.post("http://0.0.0.0:5000/predict", JSON.stringify(message), function(response){
+        $("#hot-dog-prediction").text(response.prediction.hot_dog.toFixed(6));
+        $("#not-hot-dog-prediction").text(response.prediction.not_hot_dog.toFixed(6));
+        console.log(response) ;
+
+      });
+
+    });
+
+
+
+    </script>
+
+
+  </body>
+</html>
