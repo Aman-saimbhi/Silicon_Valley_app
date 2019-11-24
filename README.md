@@ -10,7 +10,7 @@ Model is deployed as a web service by making a REST api using flask. The backend
 python file. 
 Front end web page is built to interact with the web service. An image is uploaded to the web page which is then converted into
 base64image which is then made into json object which is then sent to the back end for futher processing.
-Image is decoded and pre processed so that the predictions can be made on the image. From their the model predicts the result and
+Image is decoded and pre processed so that the predictions can be made on the image. From there the model predicts the result and
 send it back to the front end as a json response. So this how the workflow of information is carried out.
 
 You can clone this repository to make use of the service as well as the front end. Also it can be used to deploy any model
