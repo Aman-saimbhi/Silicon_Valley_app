@@ -1,6 +1,6 @@
 # Silicon_Valley_app
 Web app inspired from the hotdog app in the ''Silicon Valley'' show. Model is a fine tuned version of VGG-16 model which is deployed as a web service using flask.
-
+Here is the link to the dataset https://www.kaggle.com/dansbecker/hot-dog-not-hot-dog
 As you can see that the dataset is quite small to train the complete deep CNN like VGG-16. So, I decided to make use of transfer learning to fine tune the model for my classification task. Loaded the paramaters which were trained on original dataset of 
 very large size. Modified the last layer according to the needs of my classification task which was binary classification by freezing all the previous layers so that their parameters don't get trained.
 Due to the unavailability of large dataset, the model was slightly overfitting to the training set. However, after some tweaking 
