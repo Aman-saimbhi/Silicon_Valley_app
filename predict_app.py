@@ -6,7 +6,7 @@ import keras
 from keras import backend as k
 from keras.models import Sequential, load_model
 from keras.preprocessing.image import ImageDataGenerator, img_to_array
-from keras.layers import Dense, Conv2D, MaxPool2D , Flatten
+from keras.layers import Dense, Conv2D, MaxPool2D, Flatten
 from flask import request
 from flask import jsonify
 from flask import Flask
@@ -15,10 +15,12 @@ from keras.applications import VGG16
 from keras.applications.vgg16 import VGG16
 from keras.backend import set_session
 import tensorflow as tf
+from flask_cors import CORS
 
 
 
 app = Flask(__name__)
+CORS(app)
 
 def get_model():
 

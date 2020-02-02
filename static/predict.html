@@ -45,7 +45,8 @@
             }
         console.log(message);
         //$.post("http://10.0.0.4:5000/predict", JSON.stringify(message), function(response){
-        $.post("http://0.0.0.0:5000/predict", JSON.stringify(message), function(response){
+        //$.post("http://0.0.0.0:5000/predict", JSON.stringify(message), function(response){
+        $.post("http://192.168.0.100:5000/predict", JSON.stringify(message), function(response){
         $("#hot-dog-prediction").text(response.prediction.hot_dog.toFixed(6));
         $("#not-hot-dog-prediction").text(response.prediction.not_hot_dog.toFixed(6));
         console.log(response) ;
